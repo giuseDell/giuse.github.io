@@ -7,28 +7,75 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   </head>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
     <style>
-    .d-block{
-      display: flex;
-      justify-content: center;
+
+
+
+    #card-title {
+      text-align: center;
+      margin: 0 auto;
+      width: 200px;
+      height: auto;
+      border: solid 2px black;
+      border-radius: 10px;
+      font-weight: bold;
     }
-
-    .container {
-      position: relative;
-
-    }
-
-      .card {
-        position: absolute;
-        left: 50%;
-        top: 300%;
-        transform: translate(-50%, -50%);
-        width: 50%;
-      }
-
+    #card-text {
+    text-align: center;
+    margin: 0 auto;
+    width: 200px;
+    height: autp;
+    border: solid 2px black;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px #888888;
+}
+/*
+#card-display {
+    text-align: center;
+    margin: 0 auto;
+    width: 200px;
+    height: 300px;
+    border: solid 2px black;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px #888888;
+      <button class="btn btn-primary" type="button"onclick="showCard()">Mostra carta</button>
+}
+*/
 
     </style>
-<body>
+
+    <script>
+      var deck = [{ name: "1", src: "image1.jpg",
+                    title: "Gara di equilibrio",
+                    text: "<br> Chi riesce a mantenere l'equilibrio su una gamba più a lungo vince. Chi perde può disturbare gli altri giocatori senza spingere"
+                  },
+                  { name: "2", src: "image1.jpg",
+                    title: "Memoria fisica",
+                    text: "Una persona fa un movimento e gli altri devono ripeterlo e aggiungerne un altro, chi sbaglia per primo perde."
+                  },
+                  { name: "3", src: "image1.jpg",
+                    title: "Motor Bot",
+                    text: "Chi ha pescato questo carta metterà la faccia tra le chiappe a tutti i giocatori!"
+                  },
+                  { name: "4", src: "image1.jpg",
+                    title: "Motor Bot",
+                    text: "Chi ha pescato questo carta metterà la faccia tra le Tette se  chi pesca è un uomo a tra le palle se chi pesca è una donna. Se è GAY può scegliere o se li prende tutti e due "
+                  },
+                 ];
+      function showCard() {
+        // Seleziona una carta a caso dal mazzo
+        var randomIndex = Math.floor(Math.random() * deck.length);
+        var card = deck[randomIndex];
+
+        // Mostra la carta selezionata sulla pagina
+        //document.getElementById("card-display").src = card.src;
+        document.getElementById("card-title").innerHTML = card.title;
+        document.getElementById("card-text").innerHTML = card.text;
+      }
+    </script>
+
+<body onkeyup="if (event.keyCode === 13) showCard()" onkeyup="if (event.touchstart === 13) showCard()">
 
   <nav class="navbar bg-dark" data-bs-theme="dark" >
     <div class="container-fluid">
@@ -38,57 +85,16 @@
       </a>
     </div>
   </nav>
-
-  <div class="container text-center" >
-  <div class="card bg-dark text-white" class="card d-none"  id="card1" >
-    <img src="card1.jpg" class="card-img-top">
-    <div class="card-body">
-      <h5 class="card-title">Attento al Mostro!</h5>
-      <p class="card-text">Tutti i giocatori si bendano e chi ha pescato l'imprevisto pesca una carta MOSTRO. Quando il Mostro prende la prima preda può togliersi la benda e prendere gli altri giocatori. Nella carta MOSTRO viene descritto cosa deve fare il mostro </p>
-    </div>
-  </div>
-
-  <div class="card bg-dark text-white" class="card d-none" id="card2" >
-    <img src="card2.jpg" class="card-img-top">
-    <div class="card-body">
-      <h5 class="card-title">Motor Bot!</h5>
-      <p class="card-text">Chi ha pescato questo carta metterà la faccia tra le chiappe a tutti i giocatori!</p>
-    </div>
-  </div>
-
-  <div class="card bg-dark text-white" class="card d-none" id="card3" >
-    <img src="card3.jpg" class="card-img-top">
-    <div class="card-body">
-      <h5 class="card-title">Sadomaso!</h5>
-      <p class="card-text">Fatti bendare e mettiti a  90 sul tavolo e ogni giocatore ti frusta, piano mi raccomando!</p>
-    </div>
-  </div>
-
-  <button class="btn btn-primary text-center" type="button" id="show-card-btn">Mostra Random Card</button>
+<div class="d-grid gap-2 col-5 mx-auto mt-2 ">
+  <button class="btn btn-primary" type="button" onclick="showCard()">Mostra carta</button>
+  <button class="btn btn-primary" type="button" onclick="window.location.href='index.html'">Torna alla Home</button>
+   <img id="card-display" src="">
+   <div id="card-title"></div>
+   <div id="card-text"></div>
 </div>
 
 
 
-  <script>
-  var cards = document.getElementsByClassName("card");
-  var showCardBtn = document.getElementById("show-card-btn");
-  var currentCard;
-
-  showCardBtn.addEventListener("click", function() {
-    // Generate a random number between 0 and the number of cards
-    var randomCardIndex = Math.floor(Math.random() * cards.length);
-
-    // If a card is currently being shown, hide it
-    if (currentCard) {
-      currentCard.classList.add("d-none");
-    }
-
-    // Show the randomly
-    // selected card
-    currentCard = cards[randomCardIndex];
-    currentCard.classList.remove("d-none");
-    });
-    </script>
 
 
 </body>
