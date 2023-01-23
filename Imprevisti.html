@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  </head>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+    <style>
+
+    body {
+      background-color: white;
+    }
+
+
+    #card-title {
+      text-align: center;
+      margin: 0 auto;
+      width: 350px;
+      height: auto;
+      border: solid 2px black;
+      border-radius: 10px;
+      font-weight: bold;
+      color: #E68B39;
+      font-size: 18px;
+    }
+    #card-text {
+    text-align: center;
+    margin: 0 auto;
+    width: 350px;
+    height: autp;
+    border: solid 2px black;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px #E68B39;
+    font-size: 18px;
+}
+/*
+#card-display {
+    text-align: center;
+    margin: 0 auto;
+    width: 200px;
+    height: 300px;
+    border: solid 2px black;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px #888888;
+      <button class="btn btn-primary" type="button"onclick="showCard()">Mostra carta</button>
+}
+*/
+
+    </style>
+
+    <script>
+      var deck = [{ name: "1", src: "",
+                    title: "Gara di equilibrio",
+                    text: "<br> Chi riesce a mantenere l'equilibrio su una gamba più a lungo vince. Chi perde può disturbare gli altri giocatori senza spingere"
+                  },
+                  { name: "2", src: "",
+                    title: "Memoria fisica",
+                    text: "Una persona fa un movimento e gli altri devono ripeterlo e aggiungerne un altro, chi sbaglia per primo perde."
+                  },
+                  { name: "3", src: "",
+                    title: "Motor Bot",
+                    text: "Chi ha pescato questo carta metterà la faccia tra le chiappe a tutti i giocatori!"
+                  },
+                  { name: "4", src: "",
+                    title: "Motor Bot",
+                    text: "Chi ha pescato questo carta metterà la faccia tra le Tette se  chi pesca è un uomo a tra le palle se chi pesca è una donna. Se è GAY può scegliere o se li prende tutti e due "
+                  },
+                  { name: "5", src: "",
+                    title: "Sfiga!",
+                    text: "Il giocatore che è capitato in questa casella rimane alzato per 2 turni"
+                  },
+                  { name: "6", src: "",
+                    title: "Sei un fisioterapista!",
+                    text: "Massaggia ogni giocatore per 2 turni"
+                  },
+                  { name: "7", src: "",
+                    title: "Sei un medico!",
+                    text: "Cura il mal di pancia degli altri giocatori"
+                  },
+                  { name: "8", src: "",
+                    title: "Sei un Attore!",
+                    text: "Replica una scena pescando una carta FILM con gli altri giocatori"
+                  },
+                  { name: "9", src: "",
+                    title: "Sei un Modello",
+                    text: "Replica un  immagine pescando una carta FOTO con gli altri giocatori:"
+                  },
+                  { name: "10", src: "",
+                    title: "Sei un Agente Immobiliare",
+                    text: "Descrivi e vendi la casa in cui ti trovi facendo fare u tour agli altri giocatori "
+                  },
+                  { name: "11", src: "",
+                    title: "Sei un Agente Immobilitare Particolare",
+                    text: "Descrivi e vendi il tuo corpo "
+                  },
+                  { name: "12", src: "",
+                    title: "Sei un Attleta",
+                    text: "Esegui 5 piegamenti"
+                  },
+                  { name: "13", src: "",
+                    title: "Sei un Attleta",
+                    text: "Esegui 10 addominali facendoti aiutare  "
+                  },
+                  { name: "14", src: "",
+                    title: "Oggi Sposi!",
+                    text: "Tu e un altro giocatore vi sposate, sarete sposati dal terzo giocatore "
+                  },
+                  { name: "15", src: "",
+                    title: "Tiri liberi!",
+                    text: "Fai un canestro con le braccia, se gli altri giocatori fanno canestro, ti sculacciano. Altrimenti ti baciano "
+                  },
+                  { name: "16", src: "",
+                    title: "Stai barando!",
+                    text: "Tieni le mani dietro la schiena come se fossi ammanettato e gioca i prossimi due turni"
+                  },
+                  { name: "17", src: "",
+                    title: "Gioco degli specchi",
+                    text: "Imita i gesti del giocatore che ti sta difronte fino al prossimo turno"
+                  },
+                  { name: "18", src: "",
+                    title: "Uhm!",
+                    text: "Tu e un altro giocatore rimanete alzati per 2 turni toccandovi il culo a vicenda  "
+                  },
+                  { name: "19", src: "",
+                    title: "Uhm!",
+                    text: "Tutti i giocatori si alzano e dovete giocare 2 turni palpandovi a vicenda"
+                  },
+                  { name: "20", src: "",
+                    title: "Sei una Tartaruga!",
+                    text: "Fate una gare, chi arriva per ultimo al traguardo vince! ATTENZIONE! vale barare"
+                  },
+                  { name: "21", src: "",
+                    title: "Mimo!",
+                    text: "Mima la parola pescando una carta Parole. Hai un minuto di tempo! Se non riesci sculacciate a gogo "
+                  },
+                  { name: "22", src: "",
+                    title: "Solo come un cane!",
+                    text: "Per i prossimi due turni puoi solo abbaiare. Se sbagli il branco ti morde."
+                  },
+                  { name: "23", src: "",
+                    title: "In castigo!",
+                    text: "Passa un intero turno seduto sotto il tavolo, in punizione."
+                  },
+                  { name: "24", src: "",
+                    title: "Strega Mangia Colore!",
+                    text: "Trova il colore nella stanza, pescando una carta colore!"
+                  },
+                  { name: "25", src: "",
+                    title: "3..2..1..Via!",
+                    text: "L'ultimo che si alza in piedi perde e viene preso di mira dagli altri giocatori "
+                  },
+                  { name: "26", src: "",
+                    title: "3..2..1..Via!",
+                    text: "L'ultimo che si siede sul divano perde e viene preso di mira dagli altri giocatori "
+                  },
+                  { name: "27", src: "",
+                    title: "3..2..1..Via!",
+                    text: "L'ultimo che arriva in bagno perde e viene preso di mira dagli altri giocatori "
+                  },
+                  { name: "28", src: "",
+                    title: "3..2..1..Via!",
+                    text: "L'ultimo che si mette sotto al  tavolo perde e viene preso di mira dagli altri giocatori "
+                  },
+                  { name: "29", src: "",
+                    title: "3..2..1..Via!",
+                    text: "L'ultimo che si siede sul tavolo perde e viene preso di mira dagli altri giocatori "
+                  },
+                  { name: "30", src: "",
+                    title: "La mappa!",
+                    text: "Tutti i giocatori si alzano, Si pesca una carta CORPO e l'ultimo che tocca la zona citata perde e viene sculacciato "
+                  },
+                  { name: "31", src: "",
+                    title: "Arriva La Pula!!",
+                    text: "Perquisizione! Braccia dietro la testa, gambe divarichate, gli altri giocatori cercano dove l'hai nascosta"
+                  },
+                  { name: "32", src: "",
+                    title: "Arriva La Pula!",
+                    text: "3..2..1....Mani in alto! L'ultimo che alza le mani, vienepreso di mira "
+                  },
+                  { name: "33", src: "",
+                    title: "Scambio di Posti!",
+                    text: "Partendo da chi ha pescato la carta, uno ogni due si alza e scambio il posto. "
+                  },
+                  { name: "34", src: "",
+                    title: "Massaggio!",
+                    text: "Pesca una carta GIOCATORE  e una carta MASSAGGIO. Massaggia fino al tuo prossimo turno"
+                  },
+                  { name: "35", src: "",
+                    title: "Coreografia!",
+                    text: "Pesca una carta MUSICA, inventate una coreografia e ballate tutti insieme! "
+                  },
+                  { name: "36", src: "",
+                    title: "Riesci a cantare!",
+                    text: "Chi pesca questa carta va sotto al tavolo e può fare tutto quello che vuole agli altri giocatori! Gli altri giocatori non possono guardare, devono stare fermi e cantare una canzone fino alla fine pescando una carta CANZONE "
+                  },
+                  { name: "37", src: "",
+                    title: "Riesci a cantare!",
+                    text: "Chi pesca questa carta e un altro giocatore pescato dalla carta GIOCATORE va sotto al tavolo e può fare tutto quello che vuole agli altri giocatori! Gli altri giocatori non possono guardare, devono stare fermi e cantare una canzone fino alla fine pescando una carta CANZONE "
+                  },
+                  { name: "38", src: "",
+                    title: "Sadomaso!",
+                    text: "Chi pesca questa carta è il sottomesso, pesca una carta GIOCATORE che diventerà il suo Dominatore. Il Dominatore deve pescare una carta SOTTOMISSIONE contenente un azione che il sottomesso deve fare per lui/lei. "
+                  },
+                  { name: "39", src: "",
+                    title: "Sadomaso!",
+                    text: "Mettiti a  90 sul tavolo e ogni giocatore ti frusta, piano mi raccomando!"
+                  },
+                  { name: "40", src: "",
+                    title: "Sadomaso!",
+                    text: "Fatti bendare e mettiti a  90 sul tavolo e ogni giocatore ti frusta, piano mi raccomando!"
+                  },
+                  { name: "41", src: "",
+                    title: "Attenti al Mostro!",
+                    text: "Tutti i giocatori si bendano e chi ha pescato l'imprevisto pesca una carta MOSTRO. Quando il Mostro prende la prima preda può togliersi la benda e prendere gli altri giocatori. Nella carta MOSTRO viene descritto cosa deve fare il mostro "
+                  },
+
+                  { name: "42", src: "",
+                    title: "Strega Mangia Colore!",
+                    text: "Trova il colore nella stanza, pescando una carta colore!"
+                  },
+                  { name: "43", src: "",
+                    title: "Strega Mangia Colore!",
+                    text: "Trova il colore nella stanza, pescando una carta colore!"
+                  },
+                  { name: "44", src: "",
+                    title: "Strega Mangia Colore!",
+                    text: "Trova il colore nella stanza, pescando una carta colore!"
+                  },
+                  { name: "45", src: "",
+                    title: "Strega Mangia Colore!",
+                    text: "Trova il colore nella stanza, pescando una carta colore!"
+                  },
+                  { name: "46", src: "",
+                    title: "Strega Mangia Colore!",
+                    text: "Trova il colore nella stanza, pescando una carta colore!"
+                  },
+                  { name: "47", src: "",
+                    title: "Strega Mangia Colore!",
+                    text: "Trova il colore nella stanza, pescando una carta colore!"
+                  },
+                  { name: "48", src: "",
+                    title: "3..2..1..Via!",
+                    text: "L'ultimo che si alza in piedi perde e viene preso di mira dagli altri giocatori "
+                  },
+                  { name: "49", src: "",
+                    title: "3..2..1..Via!",
+                    text: "L'ultimo che si siede sul divano perde e viene preso di mira dagli altri giocatori "
+                  },
+                  { name: "50", src: "",
+                    title: "3..2..1..Via!",
+                    text: "L'ultimo che arriva in bagno perde e viene preso di mira dagli altri giocatori "
+                  },
+                  { name: "51", src: "",
+                    title: "3..2..1..Via!",
+                    text: "L'ultimo che si mette sotto al  tavolo perde e viene preso di mira dagli altri giocatori "
+                  },
+                  { name: "52", src: "",
+                    title: "3..2..1..Via!",
+                    text: "L'ultimo che si siede sul tavolo perde e viene preso di mira dagli altri giocatori "
+                  },
+                  { name: "53", src: "",
+                    title: "La mappa!",
+                    text: "Tutti i giocatori si alzano, Si pesca una carta CORPO e l'ultimo che tocca la zona citata perde e viene sculacciato "
+                  },
+                  { name: "54", src: "",
+                    title: "La mappa!",
+                    text: "Tutti i giocatori si alzano, Si pesca una carta CORPO e l'ultimo che tocca la zona citata perde e viene sculacciato "
+                  },
+                  { name: "55", src: "",
+                    title: "La mappa!",
+                    text: "Tutti i giocatori si alzano, Si pesca una carta CORPO e l'ultimo che tocca la zona citata perde e viene sculacciato "
+                  },
+                  { name: "56", src: "",
+                    title: "La mappa!",
+                    text: "Tutti i giocatori si alzano, Si pesca una carta CORPO e l'ultimo che tocca la zona citata perde e viene sculacciato "
+                  },
+                  { name: "57", src: "",
+                    title: "La mappa!",
+                    text: "Tutti i giocatori si alzano, Si pesca una carta CORPO e l'ultimo che tocca la zona citata perde e viene sculacciato "
+                  },
+                  { name: "58", src: "",
+                    title: "La mappa!",
+                    text: "Tutti i giocatori si alzano, Si pesca una carta CORPO e l'ultimo che tocca la zona citata perde e viene sculacciato "
+                  },
+                  { name: "59", src: "",
+                    title: "Arriva La Pula!!",
+                    text: "Perquisizione! Braccia dietro la testa, gambe divarichate, gli altri giocatori cercano dove l'hai nascosta"
+                  },
+                  { name: "60", src: "",
+                    title: "Arriva La Pula!",
+                    text: "3..2..1....Mani in alto! L'ultimo che alza le mani, vienepreso di mira "
+                  },
+                  { name: "61", src: "",
+                    title: "Scambio di Posti!",
+                    text: "Partendo da chi ha pescato la carta, uno ogni due si alza e scambio il posto. "
+                  },
+                  { name: "62", src: "",
+                    title: "Scambio di Posti!",
+                    text: "Partendo da chi ha pescato la carta, uno ogni due si alza e scambio il posto. "
+                  },
+                  { name: "63", src: "",
+                    title: "Scambio di Posti!",
+                    text: "Partendo da chi ha pescato la carta, uno ogni due si alza e scambio il posto. "
+                  },
+                  { name: "64", src: "",
+                    title: "Scambio di Posti!",
+                    text: "Partendo da chi ha pescato la carta, uno ogni due si alza e scambio il posto. "
+                  },
+                  { name: "65", src: "",
+                    title: "Scambio di Posti!",
+                    text: "Partendo da chi ha pescato la carta, uno ogni due si alza e scambio il posto. "
+                  },
+                  { name: "66", src: "",
+                    title: "Scambio di Posti!",
+                    text: "Partendo da chi ha pescato la carta, uno ogni due si alza e scambio il posto. "
+                  },
+                  { name: "67", src: "",
+                    title: "Massaggio!",
+                    text: "Pesca una carta GIOCATORE  e una carta MASSAGGIO. Massaggia fino al tuo prossimo turno"
+                  },
+                  { name: "68", src: "",
+                    title: "Massaggio!",
+                    text: "Pesca una carta GIOCATORE  e una carta MASSAGGIO. Massaggia fino al tuo prossimo turno"
+                  },
+                  { name: "69", src: "",
+                    title: "Massaggio!",
+                    text: "Pesca una carta GIOCATORE  e una carta MASSAGGIO. Massaggia fino al tuo prossimo turno"
+                  },
+                  { name: "70", src: "",
+                    title: "Massaggio!",
+                    text: "Pesca una carta GIOCATORE  e una carta MASSAGGIO. Massaggia fino al tuo prossimo turno"
+                  },
+                  { name: "71", src: "",
+                    title: "Massaggio!",
+                    text: "Pesca una carta GIOCATORE  e una carta MASSAGGIO. Massaggia fino al tuo prossimo turno"
+                  },
+                  { name: "72", src: "",
+                    title: "Massaggio!",
+                    text: "Pesca una carta GIOCATORE  e una carta MASSAGGIO. Massaggia fino al tuo prossimo turno"
+                  },
+                  { name: "73", src: "",
+                    title: "Massaggio!",
+                    text: "Pesca una carta GIOCATORE  e una carta MASSAGGIO. Massaggia fino al tuo prossimo turno"
+                  },
+                  { name: "74", src: "",
+                    title: "Massaggio!",
+                    text: "Pesca una carta GIOCATORE  e una carta MASSAGGIO. Massaggia fino al tuo prossimo turno"
+                  },
+                  { name: "75", src: "",
+                    title: "Massaggio!",
+                    text: "Pesca una carta GIOCATORE  e una carta MASSAGGIO. Massaggia fino al tuo prossimo turno"
+                  },
+                  { name: "76", src: "",
+                    title: "Coreografia!",
+                    text: "Pesca una carta MUSICA, inventate una coreografia e ballate tutti insieme! "
+                  },
+                  { name: "77", src: "",
+                    title: "Coreografia!",
+                    text: "Pesca una carta MUSICA, inventate una coreografia e ballate tutti insieme! "
+                  },
+                  { name: "78", src: "",
+                    title: "Coreografia!",
+                    text: "Pesca una carta MUSICA, inventate una coreografia e ballate tutti insieme! "
+                  },
+                  { name: "79", src: "",
+                    title: "Coreografia!",
+                    text: "Pesca una carta MUSICA, inventate una coreografia e ballate tutti insieme! "
+                  },
+                  { name: "80", src: "",
+                    title: "Coreografia!",
+                    text: "Pesca una carta MUSICA, inventate una coreografia e ballate tutti insieme! "
+                  },
+                  { name: "81", src: "",
+                    title: "Coreografia!",
+                    text: "Pesca una carta MUSICA, inventate una coreografia e ballate tutti insieme! "
+                  },
+                  { name: "82", src: "",
+                    title: "Coreografia!",
+                    text: "Pesca una carta MUSICA, inventate una coreografia e ballate tutti insieme! "
+                  },
+                  { name: "83", src: "",
+                    title: "Coreografia!",
+                    text: "Pesca una carta MUSICA, inventate una coreografia e ballate tutti insieme! "
+                  },
+                  { name: "84", src: "",
+                    title: "Riesci a cantare!",
+                    text: "Chi pesca questa carta va sotto al tavolo e può fare tutto quello che vuole agli altri giocatori! Gli altri giocatori non possono guardare, devono stare fermi e cantare una canzone fino alla fine pescando una carta CANZONE "
+                  },
+                  { name: "85", src: "",
+                    title: "Riesci a cantare!",
+                    text: "Chi pesca questa carta e un altro giocatore pescato dalla carta GIOCATORE va sotto al tavolo e può fare tutto quello che vuole agli altri giocatori! Gli altri giocatori non possono guardare, devono stare fermi e cantare una canzone fino alla fine pescando una carta CANZONE "
+                  },
+                  { name: "86", src: "",
+                    title: "Riesci a cantare!",
+                    text: "Chi pesca questa carta va sotto al tavolo e può fare tutto quello che vuole agli altri giocatori! Gli altri giocatori non possono guardare, devono stare fermi e cantare una canzone fino alla fine pescando una carta CANZONE "
+                  },
+                  { name: "87", src: "",
+                    title: "Riesci a cantare!",
+                    text: "Chi pesca questa carta e un altro giocatore pescato dalla carta GIOCATORE va sotto al tavolo e può fare tutto quello che vuole agli altri giocatori! Gli altri giocatori non possono guardare, devono stare fermi e cantare una canzone fino alla fine pescando una carta CANZONE "
+                  },
+                  { name: "88", src: "",
+                    title: "Riesci a cantare!",
+                    text: "Chi pesca questa carta va sotto al tavolo e può fare tutto quello che vuole agli altri giocatori! Gli altri giocatori non possono guardare, devono stare fermi e cantare una canzone fino alla fine pescando una carta CANZONE "
+                  },
+                  { name: "89", src: "",
+                    title: "Riesci a cantare!",
+                    text: "Chi pesca questa carta e un altro giocatore pescato dalla carta GIOCATORE va sotto al tavolo e può fare tutto quello che vuole agli altri giocatori! Gli altri giocatori non possono guardare, devono stare fermi e cantare una canzone fino alla fine pescando una carta CANZONE "
+                  },
+
+                  { name: "90", src: "",
+                    title: "Riesci a cantare!",
+                    text: "Chi pesca questa carta va sotto al tavolo e può fare tutto quello che vuole agli altri giocatori! Gli altri giocatori non possono guardare, devono stare fermi e cantare una canzone fino alla fine pescando una carta CANZONE "
+                  },
+                  { name: "91", src: "",
+                    title: "Riesci a cantare!",
+                    text: "Chi pesca questa carta e un altro giocatore pescato dalla carta GIOCATORE va sotto al tavolo e può fare tutto quello che vuole agli altri giocatori! Gli altri giocatori non possono guardare, devono stare fermi e cantare una canzone fino alla fine pescando una carta CANZONE "
+                  },
+                  { name: "92", src: "",
+                    title: "Sadomaso!",
+                    text: "Chi pesca questa carta è il sottomesso, pesca una carta GIOCATORE che diventerà il suo Dominatore. Il Dominatore deve pescare una carta SOTTOMISSIONE contenente un azione che il sottomesso deve fare per lui/lei. "
+                  },
+                  { name: "93", src: "",
+                    title: "Sadomaso!",
+                    text: "Chi pesca questa carta è il sottomesso, pesca una carta GIOCATORE che diventerà il suo Dominatore. Il Dominatore deve pescare una carta SOTTOMISSIONE contenente un azione che il sottomesso deve fare per lui/lei. "
+                  },
+                  { name: "94", src: "",
+                    title: "Sadomaso!",
+                    text: "Chi pesca questa carta è il sottomesso, pesca una carta GIOCATORE che diventerà il suo Dominatore. Il Dominatore deve pescare una carta SOTTOMISSIONE contenente un azione che il sottomesso deve fare per lui/lei. "
+                  },
+                  { name: "95", src: "",
+                    title: "Sadomaso!",
+                    text: "Chi pesca questa carta è il sottomesso, pesca una carta GIOCATORE che diventerà il suo Dominatore. Il Dominatore deve pescare una carta SOTTOMISSIONE contenente un azione che il sottomesso deve fare per lui/lei. "
+                  },
+                  { name: "96", src: "",
+                    title: "Sadomaso!",
+                    text: "Chi pesca questa carta è il sottomesso, pesca una carta GIOCATORE che diventerà il suo Dominatore. Il Dominatore deve pescare una carta SOTTOMISSIONE contenente un azione che il sottomesso deve fare per lui/lei. "
+                  },
+                  { name: "97", src: "",
+                    title: "Sadomaso!",
+                    text: "Chi pesca questa carta è il sottomesso, pesca una carta GIOCATORE che diventerà il suo Dominatore. Il Dominatore deve pescare una carta SOTTOMISSIONE contenente un azione che il sottomesso deve fare per lui/lei. "
+                  },
+                  { name: "98", src: "",
+                    title: "Sadomaso!",
+                    text: "Mettiti a  90 sul tavolo e ogni giocatore ti frusta, piano mi raccomando!"
+                  },
+                  { name: "99", src: "",
+                    title: "Sadomaso!",
+                    text: "Mettiti a  90 sul tavolo e ogni giocatore ti frusta, piano mi raccomando!"
+                  },
+                  { name: "100", src: "",
+                    title: "Sadomaso!",
+                    text: "Mettiti a  90 sul tavolo e ogni giocatore ti frusta, piano mi raccomando!"
+                  },
+                  { name: "101", src: "",
+                    title: "Sadomaso!",
+                    text: "Mettiti a  90 sul tavolo e ogni giocatore ti frusta, piano mi raccomando!"
+                  },
+                  { name: "102", src: "",
+                    title: "Sadomaso!",
+                    text: "Fatti bendare e mettiti a  90 sul tavolo e ogni giocatore ti frusta, piano mi raccomando!"
+                  },
+                  { name: "103", src: "",
+                    title: "Sadomaso!",
+                    text: "Fatti bendare e mettiti a  90 sul tavolo e ogni giocatore ti frusta, piano mi raccomando!"
+                  },
+
+                  { name: "104", src: "",
+                    title: "Sadomaso!",
+                    text: "Fatti bendare e mettiti a  90 sul tavolo e ogni giocatore ti frusta, piano mi raccomando!"
+                  },
+                  { name: "105", src: "",
+                    title: "Sadomaso!",
+                    text: "Fatti bendare e mettiti a  90 sul tavolo e ogni giocatore ti frusta, piano mi raccomando!"
+                  },
+                  { name: "106", src: "",
+                    title: "Sadomaso!",
+                    text: "Fatti bendare e mettiti a  90 sul tavolo e ogni giocatore ti frusta, piano mi raccomando!"
+                  },
+                  { name: "107", src: "",
+                    title: "Sadomaso!",
+                    text: "Fatti bendare e mettiti a  90 sul tavolo e ogni giocatore ti frusta, piano mi raccomando!"
+                  },
+                  { name: "108", src: "",
+                    title: "Attenti al Mostro!",
+                    text: "Tutti i giocatori si bendano e chi ha pescato l'imprevisto pesca una carta MOSTRO. Quando il Mostro prende la prima preda può togliersi la benda e prendere gli altri giocatori. Nella carta MOSTRO viene descritto cosa deve fare il mostro "
+                  },
+                  { name: "109", src: "",
+                    title: "Attenti al Mostro!",
+                    text: "Tutti i giocatori si bendano e chi ha pescato l'imprevisto pesca una carta MOSTRO. Quando il Mostro prende la prima preda può togliersi la benda e prendere gli altri giocatori. Nella carta MOSTRO viene descritto cosa deve fare il mostro "
+                  },
+                  { name: "110", src: "",
+                    title: "Attenti al Mostro!",
+                    text: "Tutti i giocatori si bendano e chi ha pescato l'imprevisto pesca una carta MOSTRO. Quando il Mostro prende la prima preda può togliersi la benda e prendere gli altri giocatori. Nella carta MOSTRO viene descritto cosa deve fare il mostro "
+                  },
+                  { name: "111", src: "",
+                    title: "Attenti al Mostro!",
+                    text: "Tutti i giocatori si bendano e chi ha pescato l'imprevisto pesca una carta MOSTRO. Quando il Mostro prende la prima preda può togliersi la benda e prendere gli altri giocatori. Nella carta MOSTRO viene descritto cosa deve fare il mostro "
+                  },
+                  { name: "112", src: "",
+                    title: "Attenti al Mostro!",
+                    text: "Tutti i giocatori si bendano e chi ha pescato l'imprevisto pesca una carta MOSTRO. Quando il Mostro prende la prima preda può togliersi la benda e prendere gli altri giocatori. Nella carta MOSTRO viene descritto cosa deve fare il mostro "
+                  },
+                  { name: "113", src: "",
+                    title: "Attenti al Mostro!",
+                    text: "Tutti i giocatori si bendano e chi ha pescato l'imprevisto pesca una carta MOSTRO. Quando il Mostro prende la prima preda può togliersi la benda e prendere gli altri giocatori. Nella carta MOSTRO viene descritto cosa deve fare il mostro "
+                  },
+
+                  { name: "114", src: "",
+                    title: "Attenti al Mostro!",
+                    text: "Tutti i giocatori si bendano e chi ha pescato l'imprevisto pesca una carta MOSTRO. Quando il Mostro prende la prima preda può togliersi la benda e prendere gli altri giocatori. Nella carta MOSTRO viene descritto cosa deve fare il mostro "
+                  },
+                  { name: "115", src: "",
+                    title: "Attenti al Mostro!",
+                    text: "Tutti i giocatori si bendano e chi ha pescato l'imprevisto pesca una carta MOSTRO. Quando il Mostro prende la prima preda può togliersi la benda e prendere gli altri giocatori. Nella carta MOSTRO viene descritto cosa deve fare il mostro "
+                  },
+                  { name: "116", src: "",
+                    title: "Attenti al Mostro!",
+                    text: "Tutti i giocatori si bendano e chi ha pescato l'imprevisto pesca una carta MOSTRO. Quando il Mostro prende la prima preda può togliersi la benda e prendere gli altri giocatori. Nella carta MOSTRO viene descritto cosa deve fare il mostro "
+                  },
+
+
+
+                 ];
+      function showCard() {
+        // Seleziona una carta a caso dal mazzo
+        var randomIndex = Math.floor(Math.random() * deck.length);
+        var card = deck[randomIndex];
+
+        // Mostra la carta selezionata sulla pagina
+        //document.getElementById("card-display").src = card.src;
+        document.getElementById("card-title").innerHTML = card.title;
+        document.getElementById("card-text").innerHTML = card.text;
+      }
+    </script>
+
+<body onkeyup="if (event.keyCode === 13) showCard()" onkeyup="if (event.touchstart === 13) showCard()">
+
+  <nav class="navbar bg-dark" data-bs-theme="dark" >
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+        Imprevisti
+      </a>
+    </div>
+  </nav>
+<div class="d-grid gap-2 col-5 mx-auto mt-2 ">
+  <button class="btn btn-primary" type="button" onclick="showCard()">Mostra carta</button>
+  <button class="btn btn-primary" type="button" onclick="window.location.href='index.html'">Torna alla Home</button>
+   <img id="card-display" src="">
+   <div id="card-title"></div>
+   <div id="card-text"></div>
+</div>
+
+
+
+
+
+</body>
+
+<footer class="footer bg-dark fixed-bottom">
+  <div class="container py-3">
+    <p class="text-center text-white">Copyright © Your Company 2022</p>
+  </div>
+</footer>
+
+</html>
